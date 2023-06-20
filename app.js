@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3001, DATABASE__MONGO } = process.env;
 const { celebrate, Joi, errors } = require('celebrate');
 const indexRouter = require('./routes/index');
 const { login, createUser } = require('./controllers/user');
@@ -19,7 +19,7 @@ const { HTTP_STATUS_NOT_FOUND } = http2.constants;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
+mongoose.connect(DATABASE__MONGO, {
   useNewUrlParser: true,
 });
 
