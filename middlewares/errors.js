@@ -6,7 +6,6 @@ const {
   HTTP_STATUS_CONFLICT,
 } = http2.constants;
 
-// eslint-disable-next-line no-unused-vars
 module.exports.errorsHandler = ((err, req, res, next) => {
   let statusCode = HTTP_STATUS_INTERNAL_SERVER_ERROR;
   let message;

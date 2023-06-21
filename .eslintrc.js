@@ -13,6 +13,9 @@ module.exports = {
     'no-underscore-dangle': [
       'error', { allow: ['_id'] },
     ],
+    'no-unused-vars': [
+      'error', { args: 'none' },
+    ],
     'max-classes-per-file': 'off',
   },
 };
