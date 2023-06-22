@@ -7,7 +7,7 @@ const {
 } = http2.constants;
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({}).populate('owner')
+  Movie.find({ owner: req.user._id }).populate('owner')
     .then((movies) => res.send({ data: movies }))
     .catch(next);
 };
