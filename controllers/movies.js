@@ -47,14 +47,14 @@ module.exports.createMovie = (req, res, next) => {
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findById(req.params.movieId).populate('owner')
+  Movie.findById(req.params._id).populate('owner')
     .then((movie) => {
       if (movie == null) {
         throw new NotFoundError('Нет такого фильма');
       } else if (movie.owner._id.toString() !== req.user._id) {
         throw new WrongUserError('Вы не можете удалить этот фильм');
       }
-      return Movie.findOneAndRemove({ movieId: req.params.movieId }).populate('owner');
+      return Movie.findByIdAndRemove(req.params._id).populate('owner');
     })
     .then(() => res.send({ message: 'Фильм удален' }))
     .catch(next);
