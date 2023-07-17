@@ -54,7 +54,7 @@ module.exports.deleteMovie = (req, res, next) => {
       } else if (movie.owner._id.toString() !== req.user._id) {
         throw new WrongUserError('Вы не можете удалить этот фильм');
       }
-      return Movie.findByIdAndRemove(req.params.movieId).populate('owner');
+      return Movie.findOneAndRemove({ movieId: req.params.movieId }).populate('owner');
     })
     .then(() => res.send({ message: 'Фильм удален' }))
     .catch(next);
