@@ -7,11 +7,13 @@ IP 51.250.69.59
 
 Backend https://api.bioskop.nomoredomains.rocks 
 
-## Директории
+## Технологии 
 
-`/routes` — папка с файлами роутера  
-`/controllers` — папка с файлами контроллеров пользователя и карточки   
-`/models` — папка с файлами описания схем пользователя и карточки  
+Node.js, Express.js
+
+NoSQL база данных MongoDB
+
+Nginx
 
 ## Запуск проекта
 
